@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cuenta_regresiva_container {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 46pt;
+}
+
+.cuenta_regresiva_wrapper {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cuenta_regresiva_label {
+  font-family: monospace;
+  font-size: 36px;
+  text-transform: uppercase;
+  margin: 0 8px;
+}
