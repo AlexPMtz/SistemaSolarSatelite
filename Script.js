@@ -2,6 +2,17 @@ import * as THREE from 'https://cdn.skypack.dev/three@0.132.2'
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.132.2/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.132.2/examples/jsm/loaders/GLTFLoader.js'
 
+document.getElementById('counter').addEventListener("change", () => {
+  hablar(document.getElementById('counter').value);
+});
+
+function hablar(number) {
+  // if (number == 0) {
+  //   speechSynthesis.speak(new SpeechSynthesisUtterance(number))
+  // }
+  alert(number)
+}
+
 /**Class para la construccion de la experiencia Aumented Reallity */
 class ARExperience {
   constructor() {
@@ -135,6 +146,9 @@ class ARExperience {
       if (child instanceof THREE.Mesh && this.initAnimation) {
         if (child.name === 'sun') {
           child.rotation.y += 0.003
+          if ((child.rotation.y += 0.003) === 0.006) {
+            speechSynthesis.speak(new SpeechSynthesisUtterance("Despegue"));
+          }
         }
 
         if (child.name === 'earth') {
@@ -152,6 +166,9 @@ class ARExperience {
             this.sateliteGroup.children[0].rotation.z += 0.01
         }
       }
+      // if(this.counter < 0 && this.initAnimation) {
+      //   speechSynthesis.speak(new SpeechSynthesisUtterance("Despegue"));
+      // }
     })
 
     this.controls.update()
